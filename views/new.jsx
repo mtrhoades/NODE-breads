@@ -1,6 +1,10 @@
+// RENDERS ADD NEW BREAD PAGE WITH DEFAULT ADD INS:
+
+// IMPORTS
 const React = require('react')
 const Default = require('./layouts/default')
 
+// STUB FUNCTION
 function New () {
     return (
       <Default>
@@ -35,4 +39,5 @@ function New () {
     )
 }
 
+// EXPORTS
 module.exports = New

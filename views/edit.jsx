@@ -1,7 +1,10 @@
+// EDIT/UPDATE BREAD INPUT PAGE:
+
+// IMPORTS
 const React = require('react')
 const Default = require('./layouts/default')
 
-
+// STUB FUNCTION
 function Edit ({bread, index}) {
     return (
       <Default>
@@ -36,4 +39,5 @@ function Edit ({bread, index}) {
     )
 }
 
+// EXPORTS
 module.exports = Edit

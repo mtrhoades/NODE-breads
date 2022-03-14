@@ -1,10 +1,13 @@
-const express = require('express')
-const breads = express.Router()
-const Bread = require('../models/bread.js')
+// IMPORTS
+const express = require('express') // requiring express for controllers
+const Bread = require('../models/bread.js') // to require the data exported in models/bread.js
+
+// SELECTORS
+const breads = express.Router() // creating variable, (similar to app on server.js), but .router instead. The router.
 
 // INDEX
 breads.get("/", (req, res) => {
-  res.render("index", {
+  res.render("index", { // instead of res.send (pulling raw data from models/bread.js), use res.render: we return an html file with that data.
     breads: Bread,
     title: "Index Page",
   });
@@ -24,12 +27,12 @@ breads.post('/', (req, res) => {
   res.redirect('/breads')
 });
 
-// NEW
+// NEW (must be placed above the show route)
 breads.get('/new', (req, res) => {
   res.render('new')
 });
 
-// EDIT
+// EDIT (must be placed above the show route)
 breads.get('/:indexArray/edit', (req, res) => {
   res.render('edit', {
     bread: Bread[req.params.indexArray],
@@ -49,7 +52,6 @@ breads.get("/:arrayIndex", (req, res) => {
   }
 });
 
-
 // DELETE
 breads.delete('/:indexArray', (req, res) => {
   Bread.splice(req.params.indexArray, 1)
@@ -68,7 +70,7 @@ breads.put('/:arrayIndex', (req, res) => {
 });
 
 
-
+// EXPORTS
 module.exports = breads;
 
 

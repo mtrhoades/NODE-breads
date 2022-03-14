@@ -1,3 +1,5 @@
+// The data for the server to pull from using the controller to connect with. This data is an array of objects exported to be able to use and respond with.
+
 module.exports = [
     {
       name: 'Rye',
