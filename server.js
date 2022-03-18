@@ -2,10 +2,14 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const breadsController = require('./controllers/breads_controller.js'); // saving controllers_breads file to a variable.
+const mongoose = require('mongoose');
 
 // CONFIGURATION
-require('dotenv').config()
-const PORT = process.env.PORT // ^ allows us to access the .env file
+require('dotenv').config();
+const PORT = process.env.PORT; // ^ allows us to access the .env file
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+  () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+);
 
 // SELECTORS
 const app = express() // calling express function and turning into a variable to use below
