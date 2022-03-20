@@ -18,6 +18,11 @@ const breadSchema = new Schema({
   }
 });
 
+// HELPER METHOD
+breadSchema.methods.getBakedBy = function(){
+  return `${this.name} was baked with love by ${this.baker}`
+}
+
 // MODEL VARIABLE
 const Bread = mongoose.model('Bread', breadSchema);
 
