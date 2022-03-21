@@ -28,7 +28,11 @@ breads.post('/', (req, res) => {
   }
   Bread.create(req.body)
   res.redirect('/breads')
+    .catch(err => {
+      res.send('error404')
+    })
 });
+
 
 // NEW (must be placed above the show route)
 breads.get('/new', (req, res) => {
