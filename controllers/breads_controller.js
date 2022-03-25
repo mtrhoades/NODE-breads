@@ -7,19 +7,30 @@ const breads = express.Router() // creating variable, (similar to app on server.
 const Baker = require('../models/baker.js')
 
 // INDEX
-breads.get('/', (req, res) => {
-  Baker.find()
-    .then(foundBakers => {
-      Bread.find()
-      .then(foundBreads => {
-          res.render('index', {
-              breads: foundBreads,
-              bakers: foundBakers,
-              title: 'Index Page'
-          })
-      })
-    })
+breads.get('/', async (req, res) => {
+  const foundBakers = await Baker.find().lean()
+  const foundBreads = await Bread.find().limit(10).lean()
+  res.render('index', {
+    breads: foundBreads,
+    bakers: foundBakers,
+    title: 'Index Page'
+  })
 });
+
+// call back hell below:
+// breads.get('/', (req, res) => {
+//   Baker.find()
+//     .then(foundBakers => {
+//       Bread.find()
+//       .then(foundBreads => {
+//           res.render('index', {
+//               breads: foundBreads,
+//               bakers: foundBakers,
+//               title: 'Index Page'
+//           })
+//       })
+//     })
+// });
 
 // CREATE
 breads.post('/', (req, res) => {

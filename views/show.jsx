@@ -8,9 +8,6 @@ function Show({ bread, index }) {
   return (
     <Default>
       <h3>{bread.name}</h3>
-      <li>
-        <a href='/breads'>Go home</a>
-      </li>
       <p>
         and it
         {bread.hasGluten ? <span> does </span> : <span> does NOT </span>}
@@ -22,6 +19,9 @@ function Show({ bread, index }) {
       <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
         <input type='submit' value="DELETE"/>
       </form>
+      <li>
+        <a href='/breads'>Go home</a>
+      </li>
     </Default>
   );
 }

@@ -8,3 +8,6 @@ body {
     margin: auto;
   }
   
+  li {
+    list-style-type: none;
+  }
