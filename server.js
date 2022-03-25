@@ -1,13 +1,11 @@
-// DEPENDENCIES
+// DEPENDENCIES:
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-
-// CONFIGURATION
+ 
+// CONFIGURATION & VARIABLES
 require('dotenv').config();
 const app = express() // calling express function and turning into a variable to use below
-
-// VARIABLES
 const PORT = process.env.PORT; // ^ allows us to access the .env file
 const MONGO_URI = process.env.MONGO_URI;
 
